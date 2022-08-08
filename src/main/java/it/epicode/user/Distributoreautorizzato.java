@@ -2,7 +2,6 @@ package it.epicode.user;
 
 import javax.persistence.Entity;
 
-
 @Entity
 
 public class Distributoreautorizzato extends Rivenditore {
@@ -17,9 +16,4 @@ public class Distributoreautorizzato extends Rivenditore {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	
-	
-	
 }
