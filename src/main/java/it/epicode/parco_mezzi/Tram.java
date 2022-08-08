@@ -1,5 +1,5 @@
 package it.epicode.parco_mezzi;
 
-public class Automezzi {
+public class Tram {
 
 }
