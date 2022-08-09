@@ -1,18 +1,27 @@
 package it.epicode.tratta;
 
+import java.time.Duration;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import it.epicode.biglietti.Ticket;
+import it.epicode.parco_mezzi.Mezzi;
 
 @Entity
 public class Tratta {
 @Id
- private String id;
+ private String id; //nome del percorso
  private LocalTime inizioTratta;
  private LocalTime fineTratta;
  private Integer tempoMedio;
- 
+ private Duration duration; //durata del percorso
+ @ManyToMany
+ private List<Mezzi> mezziLista = new ArrayList<Mezzi>();
  
 public Tratta(String id, LocalTime inizioTratta, LocalTime fineTratta, Integer tempoMedio) {
 	super();
@@ -20,7 +29,9 @@ public Tratta(String id, LocalTime inizioTratta, LocalTime fineTratta, Integer t
 	this.inizioTratta = inizioTratta;
 	this.fineTratta = fineTratta;
 	this.tempoMedio = tempoMedio;
+	this.duration = duration.between(inizioTratta, fineTratta);
 }
+
 public Tratta() {
 	super();
 }
@@ -50,9 +61,25 @@ public void setTempoMedio(Integer tempoMedio) {
 	this.tempoMedio = tempoMedio;
 }
 
+public Duration getDuration() {
+	return duration;
+}
+public void setDuration(Duration duration) {
+	this.duration = duration;
+}
+
+
+public List<Mezzi> getMezziLista() {
+	return mezziLista;
+}
+
+public void setMezziLista(List<Mezzi> mezziLista) {
+	this.mezziLista = mezziLista;
+}
+
 @Override
 public String toString() {
-	return "Tratta [id=" + id + ", inizioTratta=" + inizioTratta + ", fineTratta=" + fineTratta + ", tempoMedio" + tempoMedio + "]";
+	return "Tratta [id=" + id + ", inizioTratta=" + inizioTratta + ", fineTratta=" + fineTratta + ", tempoMedio" + tempoMedio + ", duration" + duration + "]";
 }
  
 

@@ -20,7 +20,7 @@ public abstract class Rivenditore {
 	private String luogo;
 	private Boolean attivo;
 	@OneToMany
-	List<Ticket> String = new ArrayList<Ticket>();
+	private List<Ticket> ticketLista = new ArrayList<Ticket>();
 	
 
 	public Rivenditore(String luogo, Boolean attivo) {
@@ -57,6 +57,14 @@ public abstract class Rivenditore {
 		this.attivo = attivo;
 	}
 
+
+	public List<Ticket> getTicketLista() {
+		return ticketLista;
+	}
+
+	public void setTicketLista(List<Ticket> ticketLista) {
+		this.ticketLista = ticketLista;
+	}
 
 	@Override
 	public String toString() {

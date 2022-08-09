@@ -21,8 +21,8 @@ public class Tram extends Mezzi {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tram(String targa, Stato_Mezzo statoMezzo, Tratta tratta, Integer capienza) {
-		super(targa, statoMezzo, tratta);
+	public Tram(String targa, Stato_Mezzo statoMezzo, Integer capienza) {
+		super(targa, statoMezzo);
 		this.capienza = capienza;
 	}
 
