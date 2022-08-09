@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import it.epicode.tratta.Tratta;
 
 @Entity
-public class Bus extends Mezzi {
-	private Integer capienza = 35;
+public class Tram extends Mezzi {
+	private Integer capienza = 100;
 
 	public Integer getCapienza() {
 		return capienza;
@@ -16,19 +16,19 @@ public class Bus extends Mezzi {
 		this.capienza = capienza;
 	}
 
-	public Bus() {
+	public Tram() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bus(String targa, Stato_Mezzo statoMezzo, Tratta tratta, Integer capienza) {
+	public Tram(String targa, Stato_Mezzo statoMezzo, Tratta tratta, Integer capienza) {
 		super(targa, statoMezzo, tratta);
 		this.capienza = capienza;
 	}
 
 	@Override
 	public String toString() {
-		return "Bus [capienza=" + capienza + ", toString()=" + super.toString() + "]";
+		return "Tram [capienza=" + capienza + ", toString()=" + super.toString() + "]";
 	}
 
 }
