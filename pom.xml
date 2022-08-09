@@ -4,8 +4,14 @@
   <artifactId>BuildWeekBE</artifactId>
   <version>0.0.1-SNAPSHOT</version>
    <properties>
+<<<<<<< HEAD
    <maven.compiler.source>1.8</maven.compiler.source>
      <maven.compiler.target>1.8</maven.compiler.target>
+=======
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+
+>>>>>>> refs/remotes/origin/simo
         <logback.version>1.1.2</logback.version>
         <slf4j-api.version>1.7.7</slf4j-api.version>
         <postgres.version>42.4.0</postgres.version>

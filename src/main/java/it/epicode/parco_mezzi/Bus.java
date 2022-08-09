@@ -21,8 +21,9 @@ public class Bus extends Mezzi {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bus(String targa, Stato_Mezzo statoMezzo, Tratta tratta, Integer capienza) {
-		super(targa, statoMezzo, tratta);
+
+	public Bus(String targa, Stato_Mezzo statoMezzo, Integer capienza) {
+		super(targa, statoMezzo);
 		this.capienza = capienza;
 	}
 
