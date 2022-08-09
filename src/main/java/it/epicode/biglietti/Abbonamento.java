@@ -2,6 +2,9 @@ package it.epicode.biglietti;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Abbonamento extends Ticket {
 
 	private Periodicita periodicita;
@@ -26,6 +29,10 @@ public class Abbonamento extends Ticket {
 
 	public Abbonamento(Integer numTicket, Boolean utilizzato, LocalDate dataAcquisto) {
 		super(numTicket, utilizzato, dataAcquisto);
+	}
+
+	public Abbonamento() {
+
 	}
 
 }
