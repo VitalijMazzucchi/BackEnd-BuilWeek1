@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-
 public abstract class Rivenditore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
