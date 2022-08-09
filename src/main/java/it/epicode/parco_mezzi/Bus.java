@@ -22,9 +22,8 @@ public class Bus extends Mezzi {
 	}
 
 
-
-	public Bus(String targa, Stato_Mezzo statoMezzo, Tratta tratta, Integer capienza) {
-		super(targa, statoMezzo, tratta);
+	public Bus(String targa, Stato_Mezzo statoMezzo, Integer capienza) {
+		super(targa, statoMezzo);
 		this.capienza = capienza;
 	}
 
