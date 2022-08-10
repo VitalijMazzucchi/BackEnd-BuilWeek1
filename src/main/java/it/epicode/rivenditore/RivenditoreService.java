@@ -1,4 +1,4 @@
-package it.epicode.user;
+package it.epicode.rivenditore;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

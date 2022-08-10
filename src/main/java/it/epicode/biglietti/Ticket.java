@@ -8,7 +8,8 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.ManyToAny;
 
-import it.epicode.user.Rivenditore;
+import it.epicode.rivenditore.Rivenditore;
+
 
 @Entity
 public abstract class Ticket {
