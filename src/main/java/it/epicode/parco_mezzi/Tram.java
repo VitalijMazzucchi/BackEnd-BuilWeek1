@@ -2,6 +2,8 @@ package it.epicode.parco_mezzi;
 
 import javax.persistence.Entity;
 
+import it.epicode.tratta.Tratta;
+
 @Entity
 public class Tram extends Mezzi {
 	private Integer capienza = 100;
@@ -19,9 +21,9 @@ public class Tram extends Mezzi {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tram(String targa, Stato_Mezzo statoMezzo) {
+	public Tram(String targa, Stato_Mezzo statoMezzo, Integer capienza) {
 		super(targa, statoMezzo);
-		// TODO Auto-generated constructor stub
+		this.capienza = capienza;
 	}
 
 	@Override

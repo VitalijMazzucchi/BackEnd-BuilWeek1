@@ -1,30 +1,85 @@
 package it.epicode.tratta;
 
-import java.time.LocalDateTime;
+import java.time.Duration;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import it.epicode.biglietti.Ticket;
+import it.epicode.parco_mezzi.Mezzi;
 
 @Entity
 public class Tratta {
 @Id
- private String id;
+ private String id; //nome del percorso
  private LocalTime inizioTratta;
- private LocalDateTime fineTratta;
- //private Integer numTratte;
-public Tratta(String id, LocalTime inizioTratta, LocalDateTime fineTratta) {
+ private LocalTime fineTratta;
+ private Integer tempoMedio;
+ private Duration duration; //durata del percorso
+ @ManyToMany
+ private List<Mezzi> mezziLista = new ArrayList<Mezzi>();
+ 
+public Tratta(String id, LocalTime inizioTratta, LocalTime fineTratta, Integer tempoMedio) {
 	super();
 	this.id = id;
 	this.inizioTratta = inizioTratta;
 	this.fineTratta = fineTratta;
+	this.tempoMedio = tempoMedio;
+	this.duration = duration.between(inizioTratta, fineTratta);
 }
+
 public Tratta() {
 	super();
 }
+
+public String getId() {
+	return id;
+}
+public void setId(String id) {
+	this.id = id;
+}
+public LocalTime getInizioTratta() {
+	return inizioTratta;
+}
+public void setInizioTratta(LocalTime inizioTratta) {
+	this.inizioTratta = inizioTratta;
+}
+public LocalTime getFineTratta() {
+	return fineTratta;
+}
+public void setFineTratta(LocalTime fineTratta) {
+	this.fineTratta = fineTratta;
+}
+public Integer getTempoMedio() {
+	return tempoMedio;
+}
+public void setTempoMedio(Integer tempoMedio) {
+	this.tempoMedio = tempoMedio;
+}
+
+public Duration getDuration() {
+	return duration;
+}
+public void setDuration(Duration duration) {
+	this.duration = duration;
+}
+
+
+public List<Mezzi> getMezziLista() {
+	return mezziLista;
+}
+
+public void setMezziLista(List<Mezzi> mezziLista) {
+	this.mezziLista = mezziLista;
+}
+
 @Override
 public String toString() {
-	return "Tratta [id=" + id + ", inizioTratta=" + inizioTratta + ", fineTratta=" + fineTratta + "]";
+	return "Tratta [id=" + id + ", inizioTratta=" + inizioTratta + ", fineTratta=" + fineTratta + ", tempoMedio" + tempoMedio + ", duration" + duration + "]";
 }
  
 
