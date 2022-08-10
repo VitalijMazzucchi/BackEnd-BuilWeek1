@@ -5,11 +5,11 @@ package it.epicode.parco_mezzi;
 public class ServicesMezzi {
 	MezziDAO dao = new MezziDAO();
 	
-	public void save(Mezzi mezzo) {
+	public void save(Mezzo mezzo) {
 		dao.save(mezzo);
 	}
 
-	public Mezzi getById(String targa) {
+	public Mezzo getById(String targa) {
 		return dao.getById(targa);
 	}
 
@@ -17,7 +17,7 @@ public class ServicesMezzi {
 		dao.delete(targa);
 	}
 
-	public void refresh(Mezzi mezzo) {
+	public void refresh(Mezzo mezzo) {
 		dao.refresh(mezzo);
 	}
 	

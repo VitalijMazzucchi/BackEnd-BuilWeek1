@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import it.epicode.biglietti.Ticket;
-import it.epicode.parco_mezzi.Mezzi;
+import it.epicode.parco_mezzi.Mezzo;
 
 @Entity
 public class Tratta {
@@ -21,7 +21,7 @@ public class Tratta {
  private Integer tempoMedio;
  private Duration duration; //durata del percorso
  @ManyToMany
- private List<Mezzi> mezziLista = new ArrayList<Mezzi>();
+ private List<Mezzo> mezziLista = new ArrayList<Mezzo>();
  
 public Tratta(String id, LocalTime inizioTratta, LocalTime fineTratta, Integer tempoMedio) {
 	super();
@@ -69,11 +69,11 @@ public void setDuration(Duration duration) {
 }
 
 
-public List<Mezzi> getMezziLista() {
+public List<Mezzo> getMezziLista() {
 	return mezziLista;
 }
 
-public void setMezziLista(List<Mezzi> mezziLista) {
+public void setMezziLista(List<Mezzo> mezziLista) {
 	this.mezziLista = mezziLista;
 }
 

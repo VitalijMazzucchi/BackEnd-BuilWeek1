@@ -16,13 +16,13 @@ public class Manutenzione {
 	private Integer id;
 
 	@ManyToOne
-	private Mezzi mezzi;
+	private Mezzo mezzi;
 	private LocalDate inizioManu;
 	private LocalDate fineManu;
 	private LocalDate fineServizio;
 	private LocalDate inizioServizio;
 	
-	public Manutenzione(Integer id, Mezzi mezzi, LocalDate inizioManu, LocalDate fineManu) {
+	public Manutenzione(Integer id, Mezzo mezzi, LocalDate inizioManu, LocalDate fineManu) {
 		super();
 		this.id = id;
 		this.mezzi = mezzi;
@@ -46,11 +46,11 @@ public class Manutenzione {
 		this.id = id;
 	}
 
-	public Mezzi getMezzi() {
+	public Mezzo getMezzi() {
 		return mezzi;
 	}
 
-	public void setMezzi(Mezzi mezzi) {
+	public void setMezzi(Mezzo mezzi) {
 		this.mezzi = mezzi;
 	}
 

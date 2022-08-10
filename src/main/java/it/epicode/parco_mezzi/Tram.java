@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import it.epicode.tratta.Tratta;
 
 @Entity
-public class Tram extends Mezzi {
+public class Tram extends Mezzo {
 	private Integer capienza = 100;
 
 	public Integer getCapienza() {

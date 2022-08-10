@@ -1,20 +1,18 @@
 package it.epicode.parco_mezzi;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import it.epicode.biglietti.Ticket;
+import it.epicode.biglietti.Biglietto;
 import it.epicode.tratta.Tratta;
 
 @Entity
-public abstract class Mezzi {
+public abstract class Mezzo {
 	@Id
 	private String targa;
 	private Stato_Mezzo statoMezzo;
@@ -25,14 +23,34 @@ public abstract class Mezzi {
 	@ManyToMany
 	private List<Tratta> trattaLista = new ArrayList<Tratta>();
 	
-	public Mezzi(String targa, Stato_Mezzo statoMezzo) {
+	@OneToMany
+	private List<Biglietto> bigliettiTiimbrati = new ArrayList<>();
+	
+	public Mezzo(String targa, Stato_Mezzo statoMezzo) {
 		super();
 		this.targa = targa;
 		this.statoMezzo = statoMezzo;
 	}
 
-	public Mezzi() {
+	public Mezzo() {
 		super();
+	}
+	
+
+	public List<Manutenzione> getManutenzione() {
+		return manutenzione;
+	}
+
+	public void setManutenzione(List<Manutenzione> manutenzione) {
+		this.manutenzione = manutenzione;
+	}
+
+	public List<Biglietto> getBigliettiTiimbrati() {
+		return bigliettiTiimbrati;
+	}
+
+	public void setBigliettiTiimbrati(List<Biglietto> bigliettiTiimbrati) {
+		this.bigliettiTiimbrati = bigliettiTiimbrati;
 	}
 
 	public String getTarga() {

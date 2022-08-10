@@ -6,7 +6,7 @@ import it.epicode.biglietti.Biglietto;
 import jpautil.JpaUtil;
 
 public class MezziDAO {
-	public void save(Mezzi mezzo) {
+	public void save(Mezzo mezzo) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
 		em.persist(mezzo);
@@ -14,9 +14,9 @@ public class MezziDAO {
 		em.close();
 	}
 
-	public Mezzi getById(String targa) {
+	public Mezzo getById(String targa) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-		Mezzi mezzo = em.find(Mezzi.class, targa);
+		Mezzo mezzo = em.find(Mezzo.class, targa);
 		return mezzo;
 	}
 
@@ -28,21 +28,27 @@ public class MezziDAO {
 		em.close();
 	}
 
-	public void refresh(Mezzi mezzo) {
+	public void refresh(Mezzo mezzo) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
 		em.merge(mezzo);
 		em.getTransaction().commit();
 		em.close();
 	}
-	public void timbra(Integer numBiglietto) {
+	public void timbra(Integer numBiglietto,String targa) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
 		Biglietto biglietto = em.find(Biglietto.class, numBiglietto);
 		biglietto.setValido(false);
+		Mezzo mezzo = getById(targa);
+		mezzo.getBigliettiTiimbrati().add(biglietto);
 		em.merge(biglietto);
+		em.merge(mezzo);
 		em.getTransaction().commit();
 		em.close();
+		
 	}
+	
+	
 	
 }
