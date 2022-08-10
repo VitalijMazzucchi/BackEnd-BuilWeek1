@@ -2,6 +2,9 @@ package it.epicode.biglietti;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Abbonamento extends Ticket {
 
 	private Periodicita periodicita;
@@ -14,8 +17,8 @@ public class Abbonamento extends Ticket {
 		this.periodicita = periodicita;
 	}
 
-	public Abbonamento(Integer numTicket, Boolean utilizzato, LocalDate dataAcquisto, Periodicita periodicita) {
-		super(numTicket, utilizzato, dataAcquisto);
+	public Abbonamento(Integer numTicket, LocalDate dataAcquisto, Periodicita periodicita) {
+		super(numTicket, dataAcquisto);
 		this.periodicita = periodicita;
 	}
 
@@ -23,9 +26,8 @@ public class Abbonamento extends Ticket {
 	public String toString() {
 		return "Abbonamento [periodicita=" + periodicita + ", toString()=" + super.toString() + "]";
 	}
+	public Abbonamento() {
 
-	public Abbonamento(Integer numTicket, Boolean utilizzato, LocalDate dataAcquisto) {
-		super(numTicket, utilizzato, dataAcquisto);
 	}
 
 }

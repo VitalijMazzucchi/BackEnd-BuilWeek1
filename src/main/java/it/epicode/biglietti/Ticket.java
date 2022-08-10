@@ -4,18 +4,23 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
+
+import it.epicode.rivenditore.Rivenditore;
+
 
 @Entity
 public abstract class Ticket {
 	@Id
 	private Integer numTicket;
-	private Boolean utilizzato = false;
 	private LocalDate dataAcquisto;
-	
-	public Ticket(Integer numTicket, Boolean utilizzato, LocalDate dataAcquisto) {
+	@ManyToOne
+	private Rivenditore rivenditore; 
+	public Ticket(Integer numTicket, LocalDate dataAcquisto) {
 		super();
 		this.numTicket = numTicket;
-		this.utilizzato = utilizzato;
 		this.dataAcquisto = dataAcquisto;
 	}
 	
@@ -29,12 +34,6 @@ public abstract class Ticket {
 	public void setNumTicket(Integer numTicket) {
 		this.numTicket = numTicket;
 	}
-	public Boolean getUtilizzato() {
-		return utilizzato;
-	}
-	public void setUtilizzato(Boolean utilizzato) {
-		this.utilizzato = utilizzato;
-	}
 	public LocalDate getDataAcquisto() {
 		return dataAcquisto;
 	}
@@ -44,7 +43,7 @@ public abstract class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [numTicket=" + numTicket + ", utilizzato=" + utilizzato + ", dataAcquisto=" + dataAcquisto + "]";
+		return "Ticket [numTicket=" + numTicket + ", dataAcquisto=" + dataAcquisto + "]";
 	}
 	
 }
