@@ -17,7 +17,7 @@ public abstract class Ticket {
 	private Integer numTicket;
 	private LocalDate dataAcquisto;
 	@ManyToOne
-	private Rivenditore rivenditore;
+	private Rivenditore rivenditore; 
 	public Ticket(Integer numTicket, LocalDate dataAcquisto) {
 		super();
 		this.numTicket = numTicket;

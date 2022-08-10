@@ -1,37 +1,39 @@
-package it.epicode.biglietti;
+package it.epicode.tratta;
 
 import javax.persistence.EntityManager;
 
 import jpautil.JpaUtil;
 
-public class TicketDAO {
-	public void save(Ticket ticket) {
+public class TrattaDao {
+	public void save(Tratta tratta) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.persist(ticket);
+		em.persist(tratta);
 		em.getTransaction().commit();
 		em.close();
 	}
 
-	public Ticket getById(Integer numTicket) {
+	public Tratta getById(String tratta) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-		Ticket tick = em.find(Ticket.class, numTicket);
-		return tick;
+		Tratta mezzo = em.find(Tratta.class, tratta);
+		return mezzo;
 	}
 
-	public void delete(Integer numTicket) {
+	public void delete(String tratta) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.remove(getById(numTicket));
+		em.remove(getById(tratta));
 		em.getTransaction().commit();
 		em.close();
 	}
 
-	public void refresh(Ticket mezzo) {
+	public void refresh(Tratta tratta) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.merge(mezzo);
+		em.merge(tratta);
 		em.getTransaction().commit();
 		em.close();
 	}
+
+	
 }

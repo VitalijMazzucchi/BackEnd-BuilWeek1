@@ -1,37 +1,39 @@
-package it.epicode.biglietti;
+package it.epicode.tessera;
 
 import javax.persistence.EntityManager;
 
 import jpautil.JpaUtil;
 
-public class TicketDAO {
-	public void save(Ticket ticket) {
+public class TesseraDao {
+	public void save(Tessera tessera) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.persist(ticket);
+		em.persist(tessera);
 		em.getTransaction().commit();
 		em.close();
 	}
 
-	public Ticket getById(Integer numTicket) {
+	public Tessera getById(String tessera) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-		Ticket tick = em.find(Ticket.class, numTicket);
-		return tick;
+		Tessera mezzo = em.find(Tessera.class, tessera);
+		return mezzo;
 	}
 
-	public void delete(Integer numTicket) {
+	public void delete(String tessera) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.remove(getById(numTicket));
+		em.remove(getById(tessera));
 		em.getTransaction().commit();
 		em.close();
 	}
 
-	public void refresh(Ticket mezzo) {
+	public void refresh(Tessera tessera) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.merge(mezzo);
+		em.merge(tessera);
 		em.getTransaction().commit();
 		em.close();
 	}
+
+	
 }
