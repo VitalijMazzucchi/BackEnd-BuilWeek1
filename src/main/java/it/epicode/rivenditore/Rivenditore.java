@@ -1,18 +1,27 @@
 package it.epicode.rivenditore;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import it.epicode.biglietti.Ticket;
 
 @Entity
+
 public abstract class Rivenditore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer rivenditabiglietti;
+	private Integer idRivenditore;
 	private String luogo;
 	private Boolean attivo;
-	private Integer bigliettiemessi;
+	@OneToMany
+	private List<Ticket> ticketLista = new ArrayList<Ticket>();
+	
 
 	public Rivenditore(String luogo, Boolean attivo) {
 		super();
@@ -24,12 +33,12 @@ public abstract class Rivenditore {
 		super();
 	}
 
-	public Integer getRivenditabiglietti() {
-		return rivenditabiglietti;
+	public Integer getIdRivenditore() {
+		return idRivenditore;
 	}
 
-	public void setRivenditabiglietti(Integer rivenditabiglietti) {
-		this.rivenditabiglietti = rivenditabiglietti;
+	public void setIdRivenditore(Integer idRivenditore) {
+		this.idRivenditore = idRivenditore;
 	}
 
 	public String getLuogo() {
@@ -48,18 +57,18 @@ public abstract class Rivenditore {
 		this.attivo = attivo;
 	}
 
-	public Integer getBigliettiemessi() {
-		return bigliettiemessi;
+
+	public List<Ticket> getTicketLista() {
+		return ticketLista;
 	}
 
-	public void setBigliettiemessi(Integer bigliettiemessi) {
-		this.bigliettiemessi = bigliettiemessi;
+	public void setTicketLista(List<Ticket> ticketLista) {
+		this.ticketLista = ticketLista;
 	}
 
 	@Override
 	public String toString() {
-		return "Rivenditore [rivenditabiglietti=" + rivenditabiglietti + ", luogo=" + luogo + ", attivo=" + attivo
-				+ ", bigliettiemessi=" + bigliettiemessi + "]";
+		return "Rivenditore [idRivenditore=" + idRivenditore + ", luogo=" + luogo + ", attivo=" + attivo + "]";
 	}
 
 }
