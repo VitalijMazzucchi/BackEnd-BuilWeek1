@@ -52,6 +52,6 @@ public void setValido(Boolean valido) {
 public String toString() {
 	return "Tessera [numTessera=" + numTessera + "]";
 }
- 
+ //salve
 
 }
