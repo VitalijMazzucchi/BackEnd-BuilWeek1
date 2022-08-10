@@ -1,4 +1,4 @@
-package it.epicode.user;
+package it.epicode.rivenditore;
 
 import javax.persistence.EntityManager;
 
