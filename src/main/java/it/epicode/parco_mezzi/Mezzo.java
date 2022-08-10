@@ -82,5 +82,7 @@ public abstract class Mezzo {
 	public String toString() {
 		return "Mezzi [targa=" + targa + ", statoMezzo=" + statoMezzo + "]";
 	}
+	
+	
 
 }
