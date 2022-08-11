@@ -3,7 +3,7 @@ package it.epicode.biglietti;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-
+  
 @Entity
 public class Abbonamento extends Ticket {
 
