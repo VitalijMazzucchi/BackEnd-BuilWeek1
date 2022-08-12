@@ -117,7 +117,7 @@ public class Main {
 		
 		bus1.getTrattaLista().add(tra);
 		g.mezzi.refresh(bus1);
-		
+		g.mezzi.manutenzione(1, "AX888JJ", LocalDate.of(2022, 7, 10), LocalDate.of(2022, 8, 10));
 		g.mezzi.timbra(111, "RM000SS", LocalDate.of(2022, 8, 10));
 	}
 }
