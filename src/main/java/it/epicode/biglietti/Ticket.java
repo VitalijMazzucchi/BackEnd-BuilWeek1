@@ -12,7 +12,7 @@ import it.epicode.rivenditore.Rivenditore;
 
 @Entity
 @NamedQuery(name = "ticket.venditore", query = "SELECT b FROM Ticket b WHERE b.rivenditore.partitaIva =:partitaIva")
-@NamedQuery(name = "ticket.tempo", query = "SELECT b FROM Ticket b WHERE b.dataacquisto BETWEEN :inizio AND :fine")
+// @NamedQuery(name = "ticket.tempo", query = "SELECT b FROM Ticket b WHERE b.dataacquisto BETWEEN :inizio AND :fine")
 @NamedQuery(name = "mezzo.timbro", query = "SELECT b FROM Biglietto b WHERE b.mezzo.targa = :targa")
 @NamedQuery(name = "mezzo.datatimbro", query = "SELECT b FROM Biglietto b WHERE b.mezzo.targa = :targa AND b.datavalidazione BETWEEN :inizio AND :fine")
 
