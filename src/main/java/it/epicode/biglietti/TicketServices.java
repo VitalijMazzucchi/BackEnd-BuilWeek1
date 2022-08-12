@@ -1,5 +1,13 @@
 package it.epicode.biglietti;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import it.epicode.parco_mezzi.Mezzo;
+import jpautil.JpaUtil;
 
 public class TicketServices {
 	TicketDAO dao = new TicketDAO();
@@ -18,4 +26,11 @@ public class TicketServices {
 	public void refresh(Ticket mezzo) {
 		dao.refresh(mezzo);
 	}
+	public List<Biglietto> ricercadamezzo(Mezzo targa){
+    	return ricercadamezzo(targa);
+    }
+	
+	public List<Biglietto> ricercadamezzo(Mezzo targa, LocalDate i, LocalDate f){
+		return ricercadamezzo(targa, i, f);
+    }
 }
