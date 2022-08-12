@@ -60,5 +60,17 @@ public class MezziDAO {
 		em.close();
 		return tratte;
 	}
-	
+	public void manutenzione(Integer numBiglietto,String targa, LocalDate v) {
+		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+		em.getTransaction().begin();
+		Biglietto biglietto = em.find(Biglietto.class, numBiglietto);
+		biglietto.setValido(false);
+		biglietto.setDatavalidazione(v);
+		Mezzo mezzo = getById(targa);
+		mezzo.getBigliettiTiimbrati().add(biglietto);
+		em.merge(biglietto);
+		em.merge(mezzo);
+		em.getTransaction().commit();
+		em.close();
+	}
 }
