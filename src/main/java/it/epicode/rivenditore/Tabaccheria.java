@@ -8,11 +8,13 @@ public class Tabaccheria extends Rivenditore {
 
 	public Tabaccheria() {
 		super();
+		
 	}
 
-	public Tabaccheria(String luogo, Boolean attivo) {
-		super(luogo, attivo);
+	public Tabaccheria(Integer partitaIva, String luogo) {
+		super(partitaIva, luogo);
 		// TODO Auto-generated constructor stub
 	}
+
 
 }

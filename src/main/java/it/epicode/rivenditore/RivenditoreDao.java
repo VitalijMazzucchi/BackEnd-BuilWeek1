@@ -1,7 +1,13 @@
 package it.epicode.rivenditore;
 
-import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import it.epicode.biglietti.Ticket;
+import it.epicode.biglietti.TicketDAO;
 import jpautil.JpaUtil;
 
 public class RivenditoreDao {
@@ -25,7 +31,7 @@ public class RivenditoreDao {
 
 	    public Rivenditore recuperadaid(Rivenditore rivenditore){
 	        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-	        Rivenditore obj = em.find(Rivenditore.class, rivenditore.getIdRivenditore());
+	        Rivenditore obj = em.find(Rivenditore.class, rivenditore.getPartitaIva());
 	        em.close();
 	        return obj;
 	    }
@@ -38,7 +44,31 @@ public class RivenditoreDao {
 	        em.close();
 	    }
 	    
+	    public List<Ticket> ricercadarivenditore(Integer s){
+	        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+	    	Query q = em.createNamedQuery("ticket.venditore");
+	    	q.setParameter("partitaIva", s);
+	    	List<Ticket> listavariabile = q.getResultList();
+	    	em.close();
+	    	return listavariabile;
+	    }
+	    
+	    public List<Ticket> ricercadaperiodo(LocalDate i, LocalDate f){
+	        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+	        Query n = em.createNamedQuery("ticket.tempo");
+	        n.setParameter("inizio", i);
+	        n.setParameter("fine", f);
+	        List<Ticket> storicoacquisti = n.getResultList();
+	        em.close();
+			return storicoacquisti;
+	    }
+	    
+	    
+	    
+	    
+}
+	    
 	    
 
 
-}
+
