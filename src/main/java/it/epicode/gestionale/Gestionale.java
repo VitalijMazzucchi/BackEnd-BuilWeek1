@@ -8,11 +8,11 @@ import it.epicode.tratta.TrattaService;
 import it.epicode.user.UserService;
 
 public class Gestionale {
-  TicketServices ticket = new TicketServices();
-  ServicesMezzi mezzi = new ServicesMezzi();
-  RivenditoreService rivenditore = new RivenditoreService();
-  TesseraService tessera = new TesseraService();
-  TrattaService tratta = new TrattaService();
-  UserService user = new UserService();
+ public TicketServices ticket = new TicketServices();
+ public ServicesMezzi mezzi = new ServicesMezzi();
+ public  RivenditoreService rivenditore = new RivenditoreService();
+ public TesseraService tessera = new TesseraService();
+ public TrattaService tratta = new TrattaService();
+ public  UserService user = new UserService();
   
 }
