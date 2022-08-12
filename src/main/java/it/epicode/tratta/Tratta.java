@@ -22,7 +22,7 @@ public class Tratta {
  private Duration duration; //durata del percorso
  @ManyToMany
  private List<Mezzo> mezziLista = new ArrayList<Mezzo>();
- 
+  
 public Tratta(String id, LocalTime inizioTratta, LocalTime fineTratta, Integer tempoMedio) {
 	super();
 	this.id = id;
