@@ -61,4 +61,24 @@ public class MezziDAO {
 		return tratte;
 	}
 	
+	public void manutenzione(Integer idManu, String targa, LocalDate im, LocalDate fm) {
+		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+		em.getTransaction().begin();
+        Mezzo mezzo = getById(targa);
+        if(mezzo.getStatoMezzo() == Stato_Mezzo.SERVIZIO) {
+        	mezzo.setStatoMezzo(Stato_Mezzo.MANUTENZIONE);
+    		Manutenzione manutenzione = new Manutenzione(idManu, mezzo, im, fm);
+    		em.persist(manutenzione);
+        	mezzo.getManutenzione().add(manutenzione);
+        	em.merge(mezzo);
+        	em.getTransaction().commit();
+        	em.close();
+        }    else {
+        	mezzo.setStatoMezzo(Stato_Mezzo.SERVIZIO);
+        	em.merge(mezzo);
+        	em.getTransaction().commit();
+        	em.close();
+        }
+		
+	}
 }

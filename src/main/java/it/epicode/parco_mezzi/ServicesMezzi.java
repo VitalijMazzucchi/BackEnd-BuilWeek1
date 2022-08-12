@@ -1,6 +1,10 @@
 package it.epicode.parco_mezzi;
 
+import java.time.LocalDate;
 
+import javax.persistence.EntityManager;
+
+import jpautil.JpaUtil;
 
 public class ServicesMezzi {
 	MezziDAO dao = new MezziDAO();
@@ -20,5 +24,7 @@ public class ServicesMezzi {
 	public void refresh(Mezzo mezzo) {
 		dao.refresh(mezzo);
 	}
-	
+	public void manutenzione(Integer idManu, String targa, LocalDate im, LocalDate fm) {
+		dao.manutenzione(idManu, targa, im, fm);
+	}
 }
