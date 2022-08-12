@@ -28,11 +28,11 @@ public class ServicesMezzi {
 		dao.refresh(mezzo);
 	}
 	public void timbra(Integer numBiglietto,String targa, LocalDate v) {
-		timbra(numBiglietto,targa, v);
+		dao.timbra(numBiglietto,targa, v);
 	}
 	
 	public List<Tratta> ricercatratte(String targa){
 	
-		return ricercatratte( targa);
+		return dao.ricercatratte( targa);
 	}
 }

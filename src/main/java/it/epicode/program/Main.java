@@ -59,7 +59,7 @@ public class Main {
 		g.mezzi.save(bus2);
 		g.mezzi.save(bus3);
 		g.mezzi.save(bus4);
-
+				
 		Tram tram1 = new Tram("FF555RR", Stato_Mezzo.SERVIZIO, 150);
 		Tram tram2 = new Tram("UU765WW", Stato_Mezzo.SERVIZIO, 150);
 		Tram tram3 = new Tram("DE41PP", Stato_Mezzo.SERVIZIO, 150);
@@ -115,6 +115,9 @@ public class Main {
 		g.ticket.save(bi2);
 		g.ticket.save(bi3);
 		
-		//g.mezzi.timbra(222,"RM000SS" , LocalDate.of(2021, 1, 22));
+		bus1.getTrattaLista().add(tra);
+		g.mezzi.refresh(bus1);
+		
+		g.mezzi.timbra(111, "RM000SS", LocalDate.of(2022, 8, 10));
 	}
 }
