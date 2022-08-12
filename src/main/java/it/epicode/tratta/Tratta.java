@@ -16,12 +16,12 @@ public class Tratta {
  private String id; //nome del percorso
  private LocalTime inizioTratta;
  private LocalTime fineTratta;
- private Integer tempoMedio;
+ private Duration tempoMedio;
  private Duration duration; //durata del percorso
  @ManyToMany
  private List<Mezzo> mezziLista = new ArrayList<Mezzo>();
   
-public Tratta(String id, LocalTime inizioTratta, LocalTime fineTratta, Integer tempoMedio) {
+public Tratta(String id, LocalTime inizioTratta, LocalTime fineTratta, Duration tempoMedio) {
 	super();
 	this.id = id;
 	this.inizioTratta = inizioTratta;
@@ -52,10 +52,10 @@ public LocalTime getFineTratta() {
 public void setFineTratta(LocalTime fineTratta) {
 	this.fineTratta = fineTratta;
 }
-public Integer getTempoMedio() {
+public Duration getTempoMedio() {
 	return tempoMedio;
 }
-public void setTempoMedio(Integer tempoMedio) {
+public void setTempoMedio(Duration tempoMedio) {
 	this.tempoMedio = tempoMedio;
 }
 

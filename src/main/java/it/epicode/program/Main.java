@@ -1,6 +1,8 @@
 package it.epicode.program;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import it.epicode.gestionale.Gestionale;
 import it.epicode.parco_mezzi.Bus;
@@ -9,6 +11,7 @@ import it.epicode.parco_mezzi.Tram;
 import it.epicode.rivenditore.Distributoreautorizzato;
 import it.epicode.rivenditore.Tabaccheria;
 import it.epicode.tessera.Tessera;
+import it.epicode.tratta.Tratta;
 import it.epicode.user.User;
 
 
@@ -82,5 +85,12 @@ public class Main {
 	g.user.modifica(us2);
 	g.user.modifica(us3);
 	g.user.modifica(us4);
+	
+	Tratta tra = new Tratta("Tratta del mausoleo", LocalTime.of(12, 20), LocalTime.of(14, 20), Duration.ofMinutes(45));
+	Tratta tra1 = new Tratta("Tratta del Colosseo", LocalTime.of(17, 40), LocalTime.of(18, 20), Duration.ofMinutes(30));
+	Tratta tra2 = new Tratta("Tratta del Testicolo", LocalTime.of(20, 0), LocalTime.of(21, 0), Duration.ofMinutes(5));
+	g.tratta.save(tra);
+	g.tratta.save(tra1);
+	g.tratta.save(tra2);
 	}
 }
