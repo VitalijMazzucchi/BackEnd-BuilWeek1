@@ -39,7 +39,8 @@ public class MezziDAO {
 		em.getTransaction().commit();
 		em.close();
 	}
-	public void timbra(Integer numBiglietto,String targa, LocalDate v) {
+
+	public void timbra(Integer numBiglietto, String targa, LocalDate v) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
 		Biglietto biglietto = em.find(Biglietto.class, numBiglietto);
@@ -52,25 +53,35 @@ public class MezziDAO {
 		em.getTransaction().commit();
 		em.close();
 	}
-	
-	public List<Tratta> ricercatratte(String targa){
+
+	public List<Tratta> ricercatratte(String targa) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		Mezzo mezzo = getById(targa);
 		List<Tratta> tratte = mezzo.getTrattaLista();
 		em.close();
 		return tratte;
 	}
-	public void manutenzione(Integer numBiglietto,String targa, LocalDate v) {
+
+	public void manutenzione(Integer idManu, String targa, LocalDate inzioManu, LocalDate fineManu) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		Biglietto biglietto = em.find(Biglietto.class, numBiglietto);
-		biglietto.setValido(false);
-		biglietto.setDatavalidazione(v);
+
 		Mezzo mezzo = getById(targa);
-		mezzo.getBigliettiTiimbrati().add(biglietto);
-		em.merge(biglietto);
-		em.merge(mezzo);
-		em.getTransaction().commit();
-		em.close();
+		if (mezzo.getStatoMezzo() == Stato_Mezzo.SERVIZIO) {
+			mezzo.setStatoMezzo(Stato_Mezzo.MANUTENZIONE);
+			Manutenzione manutenzione = new Manutenzione(idManu, mezzo, inzioManu, fineManu);
+			manutenzione.setInizioManu(inzioManu);
+			manutenzione.setFineManu(fineManu);
+			em.persist(manutenzione);
+			mezzo.getManutenzione().add(manutenzione);
+			em.merge(mezzo);
+			em.getTransaction().commit();
+			em.close();
+		} else {
+			mezzo.setStatoMezzo(Stato_Mezzo.SERVIZIO);
+			em.merge(mezzo);
+			em.getTransaction().commit();
+			em.close();
+		}
 	}
 }

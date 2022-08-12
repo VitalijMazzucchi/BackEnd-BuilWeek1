@@ -35,4 +35,7 @@ public class ServicesMezzi {
 	
 		return dao.ricercatratte( targa);
 	}
+	public void manutenzione(Integer idManu, String targa, LocalDate inzioManu, LocalDate fineManu) {
+		dao.manutenzione(idManu, targa, inzioManu, fineManu);
+		}
 }

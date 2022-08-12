@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Manutenzione {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@ManyToOne
