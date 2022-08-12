@@ -4,8 +4,6 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-
 import it.epicode.parco_mezzi.Mezzo;
 
 @Entity
