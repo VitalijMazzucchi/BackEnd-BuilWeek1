@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -12,6 +14,7 @@ import it.epicode.biglietti.Biglietto;
 import it.epicode.tratta.Tratta;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Mezzo {
 	@Id
 	private String targa;

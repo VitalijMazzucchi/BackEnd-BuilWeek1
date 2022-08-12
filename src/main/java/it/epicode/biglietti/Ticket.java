@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
@@ -11,8 +13,9 @@ import it.epicode.rivenditore.Rivenditore;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NamedQuery(name = "ticket.venditore", query = "SELECT b FROM Ticket b WHERE b.rivenditore.partitaIva =:partitaIva")
-// @NamedQuery(name = "ticket.tempo", query = "SELECT b FROM Ticket b WHERE b.dataacquisto BETWEEN :inizio AND :fine")
+@NamedQuery(name = "ticket.tempo", query = "SELECT b FROM Ticket b WHERE b.dataAcquisto BETWEEN :inizio AND :fine")
 @NamedQuery(name = "mezzo.timbro", query = "SELECT b FROM Biglietto b WHERE b.mezzo.targa = :targa")
 @NamedQuery(name = "mezzo.datatimbro", query = "SELECT b FROM Biglietto b WHERE b.mezzo.targa = :targa AND b.datavalidazione BETWEEN :inizio AND :fine")
 

@@ -72,6 +72,15 @@ public class Main {
 	g.tessera.save(tes2);
 	g.tessera.save(tes3);
 	g.tessera.save(tes4);
-	
+	//attribuisco ad utenti una tessera
+	us1.setTessera(tes1);
+	us2.setTessera(tes2);
+	us3.setTessera(tes3);
+	us4.setTessera(tes4);
+	//modifico utente e ottengo in db la tabella con i campi delle tessere relativi all'utente piene
+	g.user.modifica(us1);
+	g.user.modifica(us2);
+	g.user.modifica(us3);
+	g.user.modifica(us4);
 	}
 }
