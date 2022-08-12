@@ -11,9 +11,11 @@ public class Distributoreautorizzato extends Rivenditore {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Distributoreautorizzato(String luogo, Boolean attivo) {
-		super(luogo, attivo);
+	public Distributoreautorizzato(Integer partitaIva, String luogo) {
+		super(partitaIva, luogo);
 		// TODO Auto-generated constructor stub
 	}
+
+
 
 }

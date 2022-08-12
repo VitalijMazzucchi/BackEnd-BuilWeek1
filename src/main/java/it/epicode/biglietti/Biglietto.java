@@ -4,12 +4,14 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 import it.epicode.parco_mezzi.Mezzo;
 
 @Entity
-public class Biglietto extends Ticket{
+public class Biglietto extends Ticket{	
 	private Boolean valido = true;
+	private LocalDate datavalidazione;
 	@ManyToOne
 	private Mezzo mezzo; 
 	
@@ -28,5 +30,23 @@ public class Biglietto extends Ticket{
 	public void setValido(Boolean valido) {
 		this.valido = valido;
 	}
+
+	public LocalDate getDatavalidazione() {
+		return datavalidazione;
+	}
+
+	public void setDatavalidazione(LocalDate datavalidazione) {
+		this.datavalidazione = datavalidazione;
+	}
+
+	public Mezzo getMezzo() {
+		return mezzo;
+	}
+
+	public void setMezzo(Mezzo mezzo) {
+		this.mezzo = mezzo;
+	}
+	
+	
 	
 }

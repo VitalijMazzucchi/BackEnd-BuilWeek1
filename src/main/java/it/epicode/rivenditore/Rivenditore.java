@@ -15,30 +15,29 @@ import it.epicode.biglietti.Ticket;
 
 public abstract class Rivenditore {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idRivenditore;
+	private Integer partitaIva;
 	private String luogo;
 	private Boolean attivo;
 	@OneToMany
 	private List<Ticket> ticketLista = new ArrayList<Ticket>();
-	
-
-	public Rivenditore(String luogo, Boolean attivo) {
-		super();
-		this.luogo = luogo;
-		this.attivo = attivo;
-	}
 
 	public Rivenditore() {
 		super();
 	}
 
-	public Integer getIdRivenditore() {
-		return idRivenditore;
+
+	public Rivenditore(Integer partitaIva, String luogo) {
+		super();
+		this.partitaIva = partitaIva;
+		this.luogo = luogo;
 	}
 
-	public void setIdRivenditore(Integer idRivenditore) {
-		this.idRivenditore = idRivenditore;
+	public Integer getPartitaIva() {
+		return partitaIva;
+	}
+
+	public void setPartitaIva(Integer partitaIva) {
+		this.partitaIva = partitaIva;
 	}
 
 	public String getLuogo() {
@@ -68,7 +67,7 @@ public abstract class Rivenditore {
 
 	@Override
 	public String toString() {
-		return "Rivenditore [idRivenditore=" + idRivenditore + ", luogo=" + luogo + ", attivo=" + attivo + "]";
+		return "Rivenditore [idRivenditore=" + partitaIva + ", luogo=" + luogo + ", attivo=" + attivo + "]";
 	}
 
 }
