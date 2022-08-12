@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import it.epicode.biglietti.Ticket;
-import it.epicode.biglietti.TicketDAO;
 import jpautil.JpaUtil;
 
 public class RivenditoreDao {

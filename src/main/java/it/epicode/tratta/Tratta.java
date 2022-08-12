@@ -8,9 +8,6 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.NamedQuery;
-
-import it.epicode.biglietti.Ticket;
 import it.epicode.parco_mezzi.Mezzo;
 
 @Entity

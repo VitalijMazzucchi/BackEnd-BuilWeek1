@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
-import org.hibernate.annotations.ManyToAny;
-
 import it.epicode.rivenditore.Rivenditore;
 
 

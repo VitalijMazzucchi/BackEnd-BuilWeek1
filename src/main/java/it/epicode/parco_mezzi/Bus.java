@@ -2,8 +2,6 @@ package it.epicode.parco_mezzi;
 
 import javax.persistence.Entity;
 
-import it.epicode.tratta.Tratta;
-
 @Entity
 public class Bus extends Mezzo {
 	private Integer capienza = 35;

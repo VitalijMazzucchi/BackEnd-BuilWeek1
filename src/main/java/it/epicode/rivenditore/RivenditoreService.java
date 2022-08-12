@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import it.epicode.biglietti.Abbonamento;
 import it.epicode.biglietti.Biglietto;
-import it.epicode.biglietti.Ticket;
 import it.epicode.biglietti.TicketDAO;
 import it.epicode.tessera.Tessera;
 
